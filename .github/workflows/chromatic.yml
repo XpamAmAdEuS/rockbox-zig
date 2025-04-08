@@ -1,0 +1,24 @@
+name: chromatic
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Publish Storybook to Chromatic
+        uses: fluentci-io/setup-fluentci@v5
+        with:
+          wasm: true
+          plugin: chromatic
+          args: |
+            publish
+          working-directory: webui/rockbox
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

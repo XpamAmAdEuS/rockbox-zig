@@ -1,0 +1,15 @@
+build
+.zig-cache
+target
+zig-out
+tools/bmp2rb
+tools/codepages
+tools/convbdf
+tools/mkboot
+tools/rdfbinary
+tools/uclpack
+tools/scramble
+webui/rockbox/node_modules
+target
+.fluentci/plugin/target
+dist/
